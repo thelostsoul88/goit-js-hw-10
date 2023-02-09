@@ -6,6 +6,7 @@ import API from './fetchCountries';
 const input = document.getElementById('search-box');
 const countryList = document.querySelector('.country-list');
 const countryInfo = document.querySelector('.country-info');
+const api = new API();
 
 const DEBOUNCE_DELAY = 300;
 
@@ -18,7 +19,8 @@ function countryName(e) {
   countryInfo.innerHTML = '';
   if (name.length === 0)
     Notiflix.Notify.info('You must write smth to search country');
-  API.fetchCountries(name)
+  api
+    .fetchCountries(name)
     .then(arr => {
       if (arr.length === 1) {
         renderInfo(arr);
