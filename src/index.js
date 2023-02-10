@@ -18,7 +18,7 @@ function countryName(e) {
   countryList.innerHTML = '';
   countryInfo.innerHTML = '';
   if (name.length === 0)
-    Notiflix.Notify.info('You must write smth to search country');
+    return Notiflix.Notify.info('You must write smth to search country');
   api
     .fetchCountries(name)
     .then(arr => {
